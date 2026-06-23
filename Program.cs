@@ -1,5 +1,6 @@
+<<<<<<< Updated upstream
 ﻿const string courseName = "This is a c# base course";
-const int year2026 = 2026;
+const int year = 2026;
 
 
 Console.WriteLine("Enter your name:");
@@ -28,3 +29,6 @@ Console.WriteLine($"City: {city}");
 Console.WriteLine($"Job: {job}");
 Console.WriteLine($"Programming language: {programming}");
 Console.WriteLine($"Some facts about me: {facts}");
+=======
+﻿
+>>>>>>> Stashed changes
