@@ -13,5 +13,5 @@ Console.WriteLine();
 
 Console.WriteLine($"Product name: {productName}");
 Console.WriteLine($"Price without discount: {productPrice}");
-Console.WriteLine($"Product discount: {productDiscount}");
+Console.WriteLine($"Product discount in %: {productDiscount}");
 Console.WriteLine($"Total price: {totalPrice}");
