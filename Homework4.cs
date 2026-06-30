@@ -25,21 +25,19 @@ const string EmailDomain = "@student.local";
 const string Header =
 @"====================================
         STUDENT PROFILE
-  ====================================";
+====================================";
 const string CourseName = "C# Basic Course";
 const string PlatformName = "Miyuki IT School";
 
-Console.WriteLine($"\n {Header} \n");
+Console.WriteLine($"\n{Header}\n");
 Console.WriteLine($"Course: {CourseName}");
 Console.WriteLine($"Platform: {PlatformName}");
-Console.WriteLine();
-Console.WriteLine($"Name: {firstName.ToUpper()}");
+Console.WriteLine($"\nName: {firstName.ToUpper()}");
 Console.WriteLine($"Last name: {lastName.ToUpper()}");
 Console.WriteLine($"City: {city}");
 Console.WriteLine($"Career: {career}");
 Console.WriteLine($"Programming language: {programmingLanguage}");
 Console.WriteLine($"Favourite subject in CS: {favoriteCS}");
-Console.WriteLine();
-Console.WriteLine($"Your school e-mail: {firstName.ToLower()}.{lastName.ToLower()}{EmailDomain}");
+Console.WriteLine($"\nYour school e-mail: {firstName.ToLower()}.{lastName.ToLower()}{EmailDomain}");
 Console.WriteLine($"Your motto: \"{motto}\"");
 Console.WriteLine($"Motto lenght {motto.Length}");
