@@ -25,14 +25,11 @@ const string EmailDomain = "@student.local";
 const string Header =
 @"====================================
         STUDENT PROFILE
-====================================";
+  ====================================";
 const string CourseName = "C# Basic Course";
 const string PlatformName = "Miyuki IT School";
 
-
-Console.WriteLine();
-Console.WriteLine(Header);
-Console.WriteLine();
+Console.WriteLine($"\n {Header} \n");
 Console.WriteLine($"Course: {CourseName}");
 Console.WriteLine($"Platform: {PlatformName}");
 Console.WriteLine();
