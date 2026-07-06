@@ -26,7 +26,7 @@ bool hasEnoughPoints = points >= MinimumPoints;
 bool canGetDiscount = hasPromoCode || points >= DiscountPoints;
 bool canEnter = isAdult && ticket;
 bool hasAccess = (role == "admin" || role == "moderator") && isAdult;
-bool hasNoAccess = !hasAccess;
+
 const string Header =
 @"========== USER CHECK ==========";
 Console.WriteLine($"\n{Header}");
@@ -39,7 +39,7 @@ Console.WriteLine($"\nAdult of age: {isAdult}");
 Console.WriteLine($"Has enough point: {hasEnoughPoints}");
 Console.WriteLine($"Can enter: {canEnter}"); 
 Console.WriteLine($"Can get a discount: {canGetDiscount}");
-Console.WriteLine($"Can edit: {hasAccess || hasNoAccess }");
+Console.WriteLine($"Can edit: {hasAccess}");
 Console.WriteLine($"Is not of legal age: {isNotAdult}"); 
 
 
