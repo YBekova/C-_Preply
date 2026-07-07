@@ -13,9 +13,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\YerkezhanBekova\\Documents\\GitHub\\C-_Preply\\code.csproj",
-      "projectName": "code",
-      "projectPath": "C:\\Users\\YerkezhanBekova\\Documents\\GitHub\\C-_Preply\\code.csproj",
+      "projectUniqueName": "C:\\Users\\YerkezhanBekova\\Documents\\GitHub\\C-_Preply\\C-_Preply.csproj",
+      "projectName": "C-_Preply",
+      "projectPath": "C:\\Users\\YerkezhanBekova\\Documents\\GitHub\\C-_Preply\\C-_Preply.csproj",
       "packagesPath": "C:\\Users\\YerkezhanBekova\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\YerkezhanBekova\\Documents\\GitHub\\C-_Preply\\obj\\",
       "projectStyle": "PackageReference",
