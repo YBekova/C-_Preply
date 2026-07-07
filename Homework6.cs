@@ -21,9 +21,9 @@ bool hasSeats = seats > 0;
 bool isAdult = age >= 18;
 bool hasTicketOrInvitation = ticket || invitation;
 bool isVip = role == "vip";
-bool roleValid = role == "guest" || role == "student" || role == "vip";
+bool roleValid = role is "guest" or "student" or "vip";
 
- bool canRegister =
+bool canRegister =
             ageCorrect &&
             seatCorrect &&
             ticketCorrect &&
@@ -49,8 +49,6 @@ Console.WriteLine($"Has available places: {hasSeats}");
 Console.WriteLine($"Has ticket or invitation: {hasTicketOrInvitation}");
 Console.WriteLine($"Is VIP: {isVip}");
 Console.WriteLine($"Role is valid: {roleValid}");
-
-
 
 Console.WriteLine($"\nCan register: {canRegister}");
     
