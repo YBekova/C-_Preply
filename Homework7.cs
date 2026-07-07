@@ -30,12 +30,13 @@ bool ageLimit = age >= MinimumAge;
 bool enoughHours = hours >= MinimumHoursPerWeek;
 bool enoughPoints = testPoints >= MinimumTestScore;
 bool hasLaptop = laptop == true;
-bool hasCodingExpirience = experience == true;
+bool hasCodingExperience = experience == true;
 bool directionBackEnd = techDirection == "backend";
 bool directionFrontEnd = techDirection == "frontend";
 bool directionQA = techDirection == "qa";
 bool directionGameDev = techDirection == "game dev";
 bool hasEnoughPointsForAdvancedGroup = testPoints >= 85;
+bool canJoinAdvancedGroup = hasEnoughPointsForAdvancedGroup && hasCodingExperience && (directionBackEnd || directionGameDev);
 
 const string Header =
 @"========== COURSE APPLICATION ==========";
@@ -56,11 +57,7 @@ if (!enoughPoints)
     Console.WriteLine("You don't have enough point! Re-take the test and cone back when the point will be minimum = 60");
     return;
 }
-if (hasEnoughPointsForAdvancedGroup && hasCodingExpirience && (directionBackEnd || directionGameDev))
-{
-    Console.WriteLine("You must participate in the advanced programm!");
-    return;
-}
+
 if (hasLaptop) Console.WriteLine("You have a laptop");
 if (!hasLaptop)
 {
@@ -70,6 +67,6 @@ if (!hasLaptop)
 if (ageLimit && enoughHours) Console.WriteLine("You have enough hours and correct age for this programm");
 if (enoughPoints && hasLaptop) Console.WriteLine("You have enough points and laptop for this programm");
 if (ageLimit && enoughHours && enoughPoints && hasLaptop) Console.WriteLine("You can start basic educational programm. Congratulations!");
-if (!hasCodingExpirience) Console.WriteLine("You don't need coding expireince for this porgramm.");
-if (hasEnoughPointsForAdvancedGroup && hasCodingExpirience && (directionBackEnd || directionGameDev)) Console.WriteLine("You must participate in the advanced programm!");
+if (!hasCodingExperience) Console.WriteLine("You don't need coding experience for this porgramm.");
+if (canJoinAdvancedGroup) Console.WriteLine($"Can join the advanced group: {canJoinAdvancedGroup}");
 
