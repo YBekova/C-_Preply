@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("C-_Preply")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b101f25b6381aaa8c1ee6072a60a1b9eda7d9d1d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e023924af3cdb76359d673c4acc43250094bf23d")]
 [assembly: System.Reflection.AssemblyProductAttribute("C-_Preply")]
 [assembly: System.Reflection.AssemblyTitleAttribute("C-_Preply")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

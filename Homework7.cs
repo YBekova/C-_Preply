@@ -47,14 +47,14 @@ Console.WriteLine($"Direction: {techDirection}");
 if (ageLimit) Console.WriteLine("\nYour age is correct for this programm");
 if (!ageLimit)
 {
-    Console.WriteLine("Your age is incorrect for this programm! Come back when your age will be 16 y.o.");
+    Console.WriteLine($"Your age is incorrect for this programm! Come back when your age will be {MinimumAge}");
     return;
 }
 if (enoughHours) Console.WriteLine("You have enough hours to participate in this programm");
 if (enoughPoints) Console.WriteLine("You have enough point to participate in this programm");
 if (!enoughPoints)
 {
-    Console.WriteLine("You don't have enough point! Re-take the test and cone back when the point will be minimum = 60");
+    Console.WriteLine($"You don't have enough point! Re-take the test and cone back when the point will be minimum = {MinimumTestScore}");
     return;
 }
 
@@ -66,7 +66,7 @@ if (!hasLaptop)
 }
 if (ageLimit && enoughHours) Console.WriteLine("You have enough hours and correct age for this programm");
 if (enoughPoints && hasLaptop) Console.WriteLine("You have enough points and laptop for this programm");
-if (ageLimit && enoughHours && enoughPoints && hasLaptop) Console.WriteLine("You can start basic educational programm. Congratulations!");
 if (!hasCodingExperience) Console.WriteLine("You don't need coding experience for this porgramm.");
+if (ageLimit && enoughHours && enoughPoints && hasLaptop) Console.WriteLine("You can start basic educational programm. Congratulations!");
 if (canJoinAdvancedGroup) Console.WriteLine($"Can join the advanced group: {canJoinAdvancedGroup}");
 
