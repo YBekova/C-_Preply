@@ -1,11 +1,18 @@
 ﻿Console.Write("Enter a number a: ");
-bool a = decimal.TryParse(Console.ReadLine(), out decimal firstValue);
+bool firstValueIsValid = decimal.TryParse(Console.ReadLine(), out decimal firstValue);
 
 Console.Write("Enter operator(+ - * /): ");
 string operation = Console.ReadLine();
 
 Console.Write("Enter a number b: ");
-bool b = decimal.TryParse(Console.ReadLine(), out decimal secondValue);
+bool secondValueIsValid = decimal.TryParse(Console.ReadLine(), out decimal secondValue);
+
+if (!firstValueIsValid || !secondValueIsValid)
+{
+    Console.WriteLine("You entered an invalid number!");
+    return;
+}
+
 switch (operation)
 {
     case "+":
