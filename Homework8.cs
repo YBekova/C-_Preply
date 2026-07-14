@@ -44,53 +44,36 @@ Console.WriteLine($"\n{Header}");
 Console.WriteLine($"\nName: {name}");
 Console.WriteLine($"City: {city}");
 Console.WriteLine($"Direction: {techDirection}");
-{
-    if (ageLimit)
-    {
-        Console.WriteLine("\nYour age is correct for this programm");
-    }
+
+    if (ageLimit) Console.WriteLine("\nYour age is correct for this programm");
     else
     {
         Console.WriteLine($"Your age is incorrect for this programm! Come back when your age will be {MinimumAge}");
         return;
     }
-}
-{
-    if (enoughHours)
-    {
-        Console.WriteLine("You have enough hours to participate in this programm");
-    }
+
+
+    if (enoughHours) Console.WriteLine("You have enough hours to participate in this programm");
     else
     {
         Console.WriteLine($"Your minimum hours must be {MinimumHoursPerWeek}");
         return;
     }
-}
 
-{
-    if (enoughPoints)
-    {
-        Console.WriteLine("You have enough point to participate in this programm");
-    }
-
+    if (enoughPoints) Console.WriteLine("You have enough point to participate in this programm");
     else
     {
         Console.WriteLine($"You don't have enough points! Re-take the test and come back when the point will be minimum = {MinimumTestScore}");
         return;
     }
-}
 
-{
-    if (hasLaptop)
-    {
-        Console.WriteLine("You have a laptop");
-    }
+    if (hasLaptop) Console.WriteLine("You have a laptop");
     else
     {
         Console.WriteLine("If you don't have a laptop go to receptionist and leave a request for a laptop");
         return;
     }
-}
+
 
 if (ageLimit && enoughHours) Console.WriteLine("You have enough hours and correct age for this programm");
 if (enoughPoints && hasLaptop) Console.WriteLine("You have enough points and laptop for this programm");
