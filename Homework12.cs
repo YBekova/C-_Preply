@@ -52,7 +52,7 @@ for (int i = 1; i <= 100; i++)
 
 }
 
-// ————TASK 3 —————
+// ————TASK 4 —————
 Random rand = new Random();
 
 int randomValue = rand.Next(1,101);
