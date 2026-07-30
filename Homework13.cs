@@ -1,43 +1,43 @@
 ﻿using System.Globalization;
 
 // Practice base
-//int[] mass = { 2, 5, 7, 8, 9, 10, 19 };
+int[] mass = { 2, 5, 7, 8, 9, 10, 19 };
 
-//Console.WriteLine($"{mass[0]}, {mass[2]}, {mass[^1]}");
-//mass[1] = 100;
+Console.WriteLine($"{mass[0]}, {mass[2]}, {mass[^1]}");
+mass[1] = 100;
 
-//for (int i = 0; i < mass.Length; i++) Console.WriteLine(mass[i]);
+for (int i = 0; i < mass.Length; i++) Console.WriteLine(mass[i]);
 
 //Practice: input and sum
 
-//int[] mass = new int[5];
-//int sum = 0;
+int[] mass = new int[5];
+int sum = 0;
 
-//int i = 0;
-//while (i < mass.Length)
-//{
+int i = 0;
+while (i < mass.Length)
+{
 
-//    Console.Write($"Index #{i}: ");
+    Console.Write($"Index #{i}: ");
 
-//    if (!int.TryParse(Console.ReadLine(), out mass[i]))
+    if (!int.TryParse(Console.ReadLine(), out mass[i]))
 
-//    {
-//        Console.WriteLine("Error! Try again!");
-//        continue;
+    {
+        Console.WriteLine("Error! Try again!");
+        continue;
 
-//    }
+    }
 
-//    i++;
+    i++;
 
-//}
+}
 
-//for (i = 0; i < mass.Length; i++)
-//{
+for (i = 0; i < mass.Length; i++)
+{
 
-//    sum += mass[i];
+    sum += mass[i];
 
-//}
-//Console.WriteLine($"Sum of all indexes = {sum}");
+}
+Console.WriteLine($"Sum of all indexes = {sum}");
 
 //Homework
 
@@ -50,9 +50,7 @@ int lastIndex = mass.Length - 1;
 int positiveNumbers = 0;
 int i = 0;
 
-
 while (i < mass.Length)
-
 {
     Console.Write($"Index #{i}: ");
     if (!int.TryParse(Console.ReadLine(), out mass[i]))
@@ -65,7 +63,6 @@ while (i < mass.Length)
 
 }
 
-
 for (i = 0; i < mass.Length; i++)
 {
 
@@ -76,6 +73,7 @@ for (i = 0; i < mass.Length; i++)
     }
 
 }
+
 Console.Write($"Index countdown:  ");
 
 for (i = mass.Length - 1; i >= 0; i--)
