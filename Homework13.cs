@@ -1,34 +1,43 @@
 ﻿using System.Globalization;
 
 // Practice base
-int[] mass = { 2, 5, 7, 8, 9, 10, 19 };
+//int[] mass = { 2, 5, 7, 8, 9, 10, 19 };
 
-Console.WriteLine($"{mass[0]}, {mass[2]}, {mass[^1]}");
-mass[1] = 100;
+//Console.WriteLine($"{mass[0]}, {mass[2]}, {mass[^1]}");
+//mass[1] = 100;
 
-for (int i = 0; i < mass.Length; i++) Console.WriteLine(mass[i]);
+//for (int i = 0; i < mass.Length; i++) Console.WriteLine(mass[i]);
 
 //Practice: input and sum
 
-int[] mass = new int[5];
-int sum = 0;
-for (int i = 0; i < mass.Length; i++)
-{
-    while (true)
-    {
-        Console.Write($"Index #{i}: ");
-        if (int.TryParse(Console.ReadLine(), out mass[i]))
-            break;
+//int[] mass = new int[5];
+//int sum = 0;
 
-        Console.WriteLine("Error! Try again!");
+//int i = 0;
+//while (i < mass.Length)
+//{
 
+//    Console.Write($"Index #{i}: ");
 
-    }
+//    if (!int.TryParse(Console.ReadLine(), out mass[i]))
 
-    sum += mass[i];
+//    {
+//        Console.WriteLine("Error! Try again!");
+//        continue;
 
-}
-Console.WriteLine($"Sum of all indexes = {sum}");
+//    }
+
+//    i++;
+
+//}
+
+//for (i = 0; i < mass.Length; i++)
+//{
+
+//    sum += mass[i];
+
+//}
+//Console.WriteLine($"Sum of all indexes = {sum}");
 
 //Homework
 
@@ -39,34 +48,37 @@ int sum = 0;
 int firstIndex = mass[0];
 int lastIndex = mass.Length - 1;
 int positiveNumbers = 0;
+int i = 0;
 
 
-
-for (int i = 0; i < mass.Length; i++)
-{   
-    
-    while (true)
+while (i < mass.Length)
 
 {
     Console.Write($"Index #{i}: ");
-    if (int.TryParse(Console.ReadLine(), out mass[i]))
-        break;
+    if (!int.TryParse(Console.ReadLine(), out mass[i]))
+    {
+        Console.WriteLine("Error! Try again!");
+        continue;
+    }
 
-    Console.WriteLine("Error! Try again!");
-
+    i++;
 
 }
 
-sum += mass[i];
+
+for (i = 0; i < mass.Length; i++)
+{
+
+    sum += mass[i];
     if (mass[i] > 0)
     {
         positiveNumbers += 1;
     }
-   
+
 }
 Console.Write($"Index countdown:  ");
 
-for (int i = mass.Length - 1; i >= 0; i--)
+for (i = mass.Length - 1; i >= 0; i--)
 {
     Console.Write(mass[i] + " ");
 }
