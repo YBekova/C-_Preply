@@ -36,14 +36,14 @@
 
 //for (int i = 0; i < mass.Length; i++)
 //{
-//    if (i % 2 == 0)
+//    if (mass[i] % 2 == 0)
 //    {
 //        evenNumbers += 1;
 //        evenNumbersSum += mass[i];
 
 //    }
 
-//    if (i % 2 != 0)
+//    else 
 //    {
 //        oddNumbers += 1;
 
