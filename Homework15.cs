@@ -1,139 +1,175 @@
-﻿//Task 1
-//int[] mass = { 12, 45, 7, 23, 56, 9, 34 };
-//int sum = 0;
+﻿// Task 1 - foreach
 
+//int[] numbers = { 5, -2, 8, 0, -1 };
+//int positiveNumberSum = 0;
+//int negativeNumberSum = 0;
 
-//for (int i = 0; i < mass.Length; i++)
+//foreach(int number in numbers)
 //{
-
-//    if (mass.Length == 0)
+//    if (number > 0)
 //    {
-
-//        Console.WriteLine("The array is empty!");
-
+//        positiveNumberSum += number;
 //    }
+
 //    else
 //    {
-
-//        sum += mass[i];
-
-//    }
-
-
-
-//}
-//double average = (double)sum / mass.Length;
-
-//Console.WriteLine($"Sum of all arrays: {sum}");
-//Console.WriteLine($"Average of all arrays: {average}");
-
-//Task 2
-
-//int[] mass = { 3, 8, 15, 22, 41, 6, 19, 10 };
-//int oddNumbers = 0;
-//int evenNumbers = 0;
-//int evenNumbersSum = 0;
-
-//for (int i = 0; i < mass.Length; i++)
-//{
-//    if (mass[i] % 2 == 0)
-//    {
-//        evenNumbers += 1;
-//        evenNumbersSum += mass[i];
-
-//    }
-
-//    else 
-//    {
-//        oddNumbers += 1;
-
+//        negativeNumberSum += number;
 //    }
 //}
 
-//Console.WriteLine($"Even numbers count: {evenNumbers}");
-//Console.WriteLine($"Odd numbers count: {oddNumbers}");
-//Console.WriteLine($"Even numbers sum: {evenNumbersSum}");
+//Console.WriteLine($"Positive numbers sum: {positiveNumberSum}");
+//Console.WriteLine($"Negative numbers sum: {negativeNumberSum}");
 
-//Task 3
+//Task 2 - foreach target, minimal, maximum numbers
 
-//int[] mass = { 5, 12, 8, 21, 3, 17 };
-//int targetValue = 21;
-//int foundIndex = -1;
+//using System.ComponentModel.Design.Serialization;
 
-//for (int i = 0; i < mass.Length; i++)
+//int[] numbers = { 14, 6, 21, 9, 3 };
+//int max = numbers[0];
+//int min = numbers[0];
+//bool found = false;
+
+//Console.Write("Enter the target number: ");
+//bool targetValid = int.TryParse(Console.ReadLine(), out int target);
+
+//if (!targetValid)
 //{
-//    if (mass[i] == targetValue)
+//    Console.WriteLine("Incorrect input for target!");
+
+//}
+
+//foreach (int number in numbers)
+//{
+//    if (number > max)
 //    {
-//        foundIndex = i;
+//        max = number;
+//    }
+
+//    if (number < min)
+//    {
+//        min = number;
+//    }
+
+
+
+//    if (number == target)
+//    {
+//        found = true;
+//        Console.WriteLine($"Target: {target}");
+//        break;
+
+//    }
+
+//    else
+//    {
+//        Console.WriteLine("Target not found!");
 //        break;
 //    }
 
 //}
-//if (foundIndex != -1)
-//{
-//    Console.WriteLine($"Target value was found in Index - {foundIndex} - ");
-//}
-//else
-//{
-//    Console.WriteLine("Such target value does not exist.");
-//}
 
-//Task 4
-// 
-////            0 1 2 3 4 5  
-//int[] mass = {1,2,3,4,5,6};
-////            ^i
-////            0 1 2 3 4 5
-////           {6,5,4,3,2,1}
-////                      ^j
-//// j = 0 j++
-//// j = 0 -> 1
-//int[] newMass = new int[mass.Length];
-//int j = 0;
-//for(int i = mass.Length - 1; i >= 0; i--)
-//{
-//    newMass[j] = mass[i];
-//    j++;
-//}
 
-//Console.Write("Reversed array: ");
-//for (int i = 0; i < newMass.Length; i++)
-//{
-//    Console.Write(newMass[i] + " ");
+//Console.WriteLine($"The minimum number: {min}");
+//Console.WriteLine($"The maximum number: {max}");
 
-//}
 
-/*
- 
-              0 1 2 3 4 5 6 7 8
-int[] mass = {4,2,7,2,9,4,1,7,3};
-              ^i
+//Task 3 - Task homework foreach
 
-                 0 1 2 3 4 5 6 7 8
-int[] newMass = {4 0 0 0 0 0 0 0 0};
-                   ^j
- */
+int[] mass = new int[6];
+int sum = 0;
+int max = mass[0];
+int min = mass[0];
+int countPositive = 0;
+int countNegative = 0;
+int countZero = 0;
+bool found = false;
+int i;
 
-//Task 6
-int[] mass = { 15, 42, 8, 42, 23, 415, 42, 8, 42, 23, 4 };
-
-int max = int.MinValue;
-int secondMax = int.MinValue;
-
-for (int i = 1; i < mass.Length; i++)
+for (i = 0; i < mass.Length; i++)
 {
-    if (mass[i] > max)
+    Console.Write($"Index #{i}: ");
+    
+    if (!int.TryParse(Console.ReadLine(), out mass[i]))
     {
-        secondMax = max;
-        max = mass[i];
+        Console.WriteLine("Invalid input, write number!");
+        i--;
+        continue;
 
     }
-    else if (mass[i] > secondMax && mass[i] < max)
-    {
-        secondMax = mass[i];
-   
-    }
+    
+}
+max = mass[0];
+min = mass[0];
+
+Console.Write("Enter the target: ");
+bool targetValid = int.TryParse(Console.ReadLine(), out int target);
+while (!targetValid)
+{
+    Console.Write("Error! Enter the target again: ");
+    targetValid = int.TryParse(Console.ReadLine(), out target);
 
 }
 
-Console.WriteLine($"Second max number in the array:{secondMax}");
+
+
+
+foreach (int number in mass) 
+{
+ 
+    if (number > max)
+    {
+        max = number;
+        
+    }
+    if (number < min)
+    {
+        min = number;
+    }
+
+    if(number < 0)
+    {
+        countNegative++;
+    }
+
+    else if(number > 0)
+    {
+        countPositive++;
+    }
+
+    else 
+    {
+        countZero++;
+    }
+
+    if(number == target)
+    {
+        found = true;
+       
+    }
+  
+
+    sum += number;
+}
+
+if (found)
+{
+    Console.WriteLine($"Target found: {target}");
+}
+else
+{
+    Console.WriteLine("Target not found!");
+}
+
+Console.Write($"Numbers in array:  ");
+
+foreach (int number in mass)
+{
+    Console.Write(number + " ");
+}
+
+Console.WriteLine($"\nThe minimum number: {min}");
+Console.WriteLine($"The maximum number: {max}");
+Console.WriteLine($"The sum of all numbers: {sum}");
+Console.WriteLine($"How many positive numbers: {countPositive}");
+Console.WriteLine($"How many negative numbers: {countNegative}");
+Console.WriteLine($"How many zeros: {countZero}");
