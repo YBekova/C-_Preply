@@ -1,31 +1,28 @@
 ﻿Console.Write("Enter number of students: ");
-bool studentNumberValid = int.TryParse(Console.ReadLine(), out int numberOfStudents);
+var studentNumberValid = int.TryParse(Console.ReadLine(), out var numberOfStudents);
+var isInvalidAmount = numberOfStudents is > 15 or < 3;
 
-while (!studentNumberValid || numberOfStudents > 15 || numberOfStudents < 3)
+while (!studentNumberValid || isInvalidAmount)
 {
     if (!studentNumberValid)
     {
         Console.Write("Error! Enter the valid number: ");
-        
     }
-
-    else if (numberOfStudents > 15 || numberOfStudents < 3)
+    else if (isInvalidAmount)
     {
         Console.Write("Error! The student count can't be less than 3 and more than 15! Enter the number again: ");
-
-
     }
 
     studentNumberValid = int.TryParse(Console.ReadLine(), out numberOfStudents);
 }
 
-int[] students = new int[numberOfStudents];
+var students = new int[numberOfStudents];
 
-for (int i = 0; i < students.Length; i++)
+for (var i = 0; i < students.Length; i++)
 {
-    var count = i + 1;
-    Console.Write($"Student #{count}, points: ");
-    bool pointValid = int.TryParse(Console.ReadLine(), out int points);
+    
+    Console.Write($"Student #{i + 1}, points: ");
+    var pointValid = int.TryParse(Console.ReadLine(), out var points);
 
     if (!pointValid)
     {
@@ -33,7 +30,6 @@ for (int i = 0; i < students.Length; i++)
         i--;
         continue;
     }
-
     else if (points < 0 || points > 100)
     {
         Console.Write("Error! Points can only be from 0 to a 100! Try again:  ");
@@ -50,30 +46,22 @@ var studentNumber = 1;
 var passedSixtyScore = 0;
 var sum = 0;
 
-foreach (int score in students)
+Console.WriteLine();
+
+foreach (var score in students)
 {
-    Console.WriteLine();
     Console.WriteLine($"Student #{studentNumber}: {score}");
-    studentNumber++;
-    
+  
     sum += score;
 
-    if (score > max)
-    {
-        max = score;
-    }
+    if (score > max) max = score;
+    if (score < min) min = score;
+    if (score >= 60) passedSixtyScore++;
 
-    if (score < min)
-    {
-        min = score;
-    }
-
-    if (score >= 60)
-    {
-        passedSixtyScore++;
-    }
+    studentNumber++;
 }
-double average = (double)sum / students.Length;
+
+var average = (double)sum / students.Length;
 
 const string Header =
 @"====================================
