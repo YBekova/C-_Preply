@@ -1,23 +1,23 @@
-﻿using System.Runtime.CompilerServices;
-const int ticketPrice = 150;
+using System.Runtime.CompilerServices;
+
 Console.Write("Enter number of seats: ");
 var isSeatsNumberValid = int.TryParse(Console.ReadLine(), out var numberOfSeats);
-var isInvalidSeatsNumber = numberOfSeats is < 5 or > 20;
+var isInvaildSeatsNumber = numberOfSeats is < 5 or > 20;
 
 var occupiedSeats = 0;
-while (!isSeatsNumberValid || isInvalidSeatsNumber)
+while (!isSeatsNumberValid || isInvaildSeatsNumber)
 {
     if (!isSeatsNumberValid)
     {
         Console.Write("Error! Enter the valid number for seats: ");
     }
-    else if (isInvalidSeatsNumber)
+    else if (isInvaildSeatsNumber)
     {
         Console.Write("Error! The number of entered seats can't be more than 20 and less than 5, try again: ");
     }
     
     isSeatsNumberValid = int.TryParse(Console.ReadLine(), out numberOfSeats);
-    isInvalidSeatsNumber = numberOfSeats is < 5 or > 20;
+    isInvaildSeatsNumber = numberOfSeats is < 5 or > 20;
 
 
 }
@@ -30,26 +30,18 @@ Console.WriteLine();
 
 while (freeSeats > 0)
 {
-    
     for (int i = 0; i < seats.Length; i++)
     {
-        var seat = seats[i];
-        if (!seat)
-        {
-            if (i >= 9) Console.Write(" [ ] ");
-            Console.Write("[ ] ");
-        }
+        if (!seats[i]) Console.Write("[ ] ");
         
         else Console.Write("[X] ");
         
     }
-
-
+    
     Console.WriteLine();
     
     for (int i = 0; i < seats.Length; i++)
     {
-        
         Console.Write($" {i + 1}  ");
     }
 
@@ -100,7 +92,21 @@ while (freeSeats > 0)
 }
 
 
+
+var countedOccupied = 0;
+var countedFree = 0;
+
+
+foreach (bool seat in seats)
+{
+    if(seat) countedOccupied++;
+    else countedFree++;
+    
+}
+
+int cashierSum = 0;
 var occupancyPercentage = (double)occupiedSeats / numberOfSeats * 100;
+var ticketPrice = 150;
 var ticketSum = ticketPrice * occupiedSeats;
 
 Console.WriteLine($"Sold seats: {occupiedSeats} from {numberOfSeats}");
