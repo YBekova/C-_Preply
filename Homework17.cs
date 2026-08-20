@@ -92,19 +92,6 @@ while (freeSeats > 0)
 }
 
 
-
-var countedOccupied = 0;
-var countedFree = 0;
-
-
-foreach (bool seat in seats)
-{
-    if(seat) countedOccupied++;
-    else countedFree++;
-    
-}
-
-int cashierSum = 0;
 var occupancyPercentage = (double)occupiedSeats / numberOfSeats * 100;
 var ticketPrice = 150;
 var ticketSum = ticketPrice * occupiedSeats;
@@ -114,5 +101,6 @@ Console.WriteLine($"Unoccupied seats: {freeSeats}");
 Console.WriteLine($"Occupancy: {occupancyPercentage}%");
 Console.WriteLine($"Ticket price: {ticketPrice}");
 Console.WriteLine($"ticket revenue: {ticketSum}");
+
        
 
