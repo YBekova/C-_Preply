@@ -1,10 +1,5 @@
 .vs/
 bin/
 obj/
-/.idea/.idea.C-_Preply/.idea/encodings.xml
-/.idea/.idea.C-_Preply/.idea/indexLayout.xml
-/.idea/.idea.C-_Preply/.idea/vcs.xml
-/.idea/.idea.C-_Preply/.idea/.gitignore
-.idea/.name
-.idea/indexLayout.xml
-*.xml
+/.idea/*
+
