@@ -7,7 +7,7 @@ public class Book
     private bool isBorowed;
     public static int BookCount;
 
-    public Book (string bookTitle, string bookAuthor)
+    public Book(string bookTitle, string bookAuthor)
     {
         Title = bookTitle;
         Author = bookAuthor;
@@ -29,9 +29,7 @@ public class Book
             
             Console.WriteLine("Book is already borrowed.");
             return false;
-            
         }
-        
     }
 
     public void ReturnBook()
@@ -42,5 +40,10 @@ public class Book
     public void ShowInfo()
     {
         Console.WriteLine($"Title: {Title}, Author: {Author}, Is it borrowed {isBorowed}");
+    }
+    
+    public static void ShowStats()
+    {
+        Console.WriteLine($"Book Count: {BookCount}");
     }
 }
