@@ -14,3 +14,4 @@ order2.ShowInfo();
 courierDima.Deliver(order1);
 order1.ShowInfo();
 order3.ShowInfo();
+Console.WriteLine($"Total orders: {Order.OrderCount}");
