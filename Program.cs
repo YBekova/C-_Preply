@@ -1,17 +1,11 @@
 ﻿using C__Preply;
 
-var order1 = new Order(1, "Masanchi 76");
-var order2 = new Order(2, "Seifullin 499");
-var order3 = new Order(3, "Jambyll 98");
+var room1 = new HotelRoom(1);
+var room2 = new HotelRoom(2, 800);
+var room3 = new HotelRoom(3, 10000);
 
-var courierAlex = new Courier("Alex");
-var courierDima = new Courier("Dima");
+room1.Book("Anna Wise");
+room1.ShowInfo();
+room1.Book("Nikita Wise");
+room1.ShowInfo();
 
-courierAlex.Deliver(order1);
-order1.ShowInfo();
-courierAlex.Deliver(order2);
-order2.ShowInfo();
-courierDima.Deliver(order1);
-order1.ShowInfo();
-order3.ShowInfo();
-Console.WriteLine($"Total orders: {Order.OrderCount}");
