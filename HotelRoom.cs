@@ -2,62 +2,36 @@
 
 public class HotelRoom
 {
-    private int RoomNumber { get; }
+    public int RoomNumber { get; }
     public string GuestName { get; private set; }
-    private int roomPriceForNight;
+
     public int RoomPriceForNight
     {
-        get
-        {
-            return roomPriceForNight;
-        }
-
-        set
-        {
-            if (value > 0)
-            {
-                roomPriceForNight = value;
-            }
-            else
-            {
-                roomPriceForNight = 1000;
-            }
-        }
+        get;
+        private set => field = value > 0 ? value : 1000;
     }
-    
-    private int HowManyNights { get; set; }
-    public bool Booked { get; private set; }
+  
+    public int NightsAmount { get; private set; }
+    public bool IsBooked { get; private set; }
 
-    public decimal TotalCost
-    {
-        get
-        {
-            return RoomPriceForNight * HowManyNights; 
-        }
-        
+    public decimal TotalCost => RoomPriceForNight * NightsAmount;
 
-    }
-
-    public HotelRoom(int RoomNumber)
-    {
-        this.RoomNumber = RoomNumber;
-        RoomPriceForNight = 1000;
-    }
+    public HotelRoom(int roomNumber) : this(roomNumber, 1000)
+    { }
 
     public HotelRoom(int roomNumber, int roomPrice)
     {
         RoomNumber = roomNumber;
         RoomPriceForNight = roomPrice;
-
     }
 
     public bool Book(string name)
     {
-        if (!Booked)
+        if (!IsBooked)
         {
             GuestName = name;
-            HowManyNights = 1;
-            Booked = true;
+            NightsAmount = 1;
+            IsBooked = true;
             return true;
         }
 
@@ -66,27 +40,41 @@ public class HotelRoom
 
     public bool Book(string name, int nights)
     {
-        if (!Booked && nights > 0)
+        if (!IsBooked && nights > 0)
         {
             GuestName = name;
-            HowManyNights = nights;
-            Booked = true;
+            NightsAmount = nights;
+            IsBooked = true;
             return true;
         }
         
         return false;
     }
+    
+    public int GetValue(string test, int test2) // GetValue(string, int)
+    {
+        return 10;
+    }
+
+    public int GetValue() // GetValue()
+    {
+        return 10;
+    }
 
     public void CancelBooking()
     {
         GuestName = "";
-        HowManyNights = 0;
-        Booked = false;
-        
+        NightsAmount = 0;
+        IsBooked = false;
     }
 
     public void ShowInfo()
     {
-        Console.WriteLine($"Booking - {Booked}, Guest Name - {GuestName}, how many night - {HowManyNights}");
+        Console.WriteLine($"Room number: {RoomNumber} Room price: {RoomPriceForNight} Booking - {IsBooked}, Guest Name - {GuestName}, how many night - {NightsAmount}");
     }
 }
+
+// Print(int number);
+// Print(string text);
+// Print(string text, int count);
+// Print(int count, string text);
