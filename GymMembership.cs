@@ -23,10 +23,9 @@ public class GymMembership
 
     public int PaidMonthsAmount{ get; private set; }
     
-    public bool IsActive { get; set ; }
+    public MembershipStatus Status { get; private set; }
     
     public int TotalCost => MonthlyCost * PaidMonthsAmount;
-    public int ShowPaidMonthsAmount => PaidMonthsAmount * MonthlyCost;
 
     public GymMembership (string ownerName) : this(ownerName, 1200)
     { }
@@ -44,14 +43,18 @@ public class GymMembership
         {
             Console.WriteLine("Membership can't be activated because monthly cost must be greater than 0!");
         }
-        else if (IsActive)
+        else switch (Status)
         {
-            Console.WriteLine("Membership is already active!");
-        }
-        else
-        {
-            IsActive = true;
-            PaidMonthsAmount = 1;
+            case MembershipStatus.Active:
+                Console.WriteLine("Membership is already active!");
+                break;
+            case MembershipStatus.Expired:
+                Console.WriteLine("Membership is expired! Extend it!");
+                break;
+            default:
+                Status = MembershipStatus.Active;
+                PaidMonthsAmount = 1;
+                break;
         }
     }
 
@@ -65,20 +68,30 @@ public class GymMembership
         {
             Console.WriteLine("Months amount must be greater than 0!");
         }
-        else if (IsActive)
+        else switch (Status)
         {
-            Console.WriteLine("Membership is already active!");
-        }
-        else
-        {
-            IsActive = true;
-            PaidMonthsAmount = months;
+            case MembershipStatus.Active:
+                Console.WriteLine("Membership is already active!");
+                break;
+            case MembershipStatus.Expired:
+                Console.WriteLine("Membership is expired! Extend it!");
+                break;
+            default:
+                Status = MembershipStatus.Active;
+                PaidMonthsAmount = months;
+                break;
         }
     }
     
     public int Extend(int months)
     {
-        if (IsActive && months > 0)
+        if (months <= 0)
+        {
+            Console.WriteLine("Months amount must be greater than 0!");
+            return 0;
+        }
+        
+        if (Status is MembershipStatus.Active or MembershipStatus.Expired)
         {
             PaidMonthsAmount += months;
         }
@@ -93,15 +106,14 @@ public class GymMembership
     public void Cancel()
     { 
         PaidMonthsAmount = 0;
-        IsActive = false;
-
+        Status = MembershipStatus.Cancelled;
     }
 
     public void ShowInfo()
     {
         Console.WriteLine($"Members name - {OwnerName}, " +
                           $"Paid Months {PaidMonthsAmount}, " +
-                          $"is Active {IsActive}, " +
+                          $"Status {Status}, " +
                           $"Monthly cost {MonthlyCost}, " +
                           $"Total membership cost - {TotalCost}");
     }

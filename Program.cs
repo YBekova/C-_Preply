@@ -38,3 +38,8 @@ else
     result = 0;
 }
 
+var status = MembershipStatus.Idle;
+var status2 = MembershipStatus.Active;
+
+var intStatus = (int) status;
+var status3 = (MembershipStatus) intStatus;
