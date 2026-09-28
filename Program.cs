@@ -1,10 +1,10 @@
 ﻿using C__Preply;
 
-var membership1 = new GymMembership("Alex");
+var membership1 = new GymMembership("Alex", 100);
 
 var membership2 = new GymMembership("Tomiris", 1000);
 
-var membership3 = new GymMembership("Amina", 0);
+var membership3 = new GymMembership("Amina", 1);
 
 var membership4 = new GymMembership("Ricky");
 
@@ -17,3 +17,24 @@ membership1.ShowInfo();
 
 membership3.Activate();
 membership3.ShowInfo();
+
+membership4.Extend(1);
+membership4.ShowInfo();
+
+int result = 0;
+int result2 = 0;
+var isActive = false;
+
+result = 5 + 3 == 8 
+    ? 8 
+    : 0;
+
+if (isActive)
+{
+    result = 1;
+}
+else
+{
+    result = 0;
+}
+

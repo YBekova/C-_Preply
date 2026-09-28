@@ -25,14 +25,8 @@ public class GymMembership
     
     public bool IsActive { get; set ; }
     
-    public int TotalCost
-    {
-        get 
-        {
-            return MonthlyCost * PaidMonthsAmount;
-        }
-       
-    }
+    public int TotalCost => MonthlyCost * PaidMonthsAmount;
+    public int ShowPaidMonthsAmount => PaidMonthsAmount * MonthlyCost;
 
     public GymMembership (string ownerName) : this(ownerName, 1200)
     { }
@@ -84,9 +78,8 @@ public class GymMembership
     
     public int Extend(int months)
     {
-        if (IsActive == true && months > 0)
+        if (IsActive && months > 0)
         {
-
             PaidMonthsAmount += months;
         }
         else
