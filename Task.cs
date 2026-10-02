@@ -5,9 +5,9 @@ public class Task
     public string TaskName { get; set; }
     public TaskStatus Status { get; private set; }
 
-    public Task(string taskname)
+    public Task(string taskName)
     {
-        TaskName = taskname;
+        TaskName = taskName;
         Status = TaskStatus.Created;
         Console.WriteLine($"New task is created: {TaskName}");
     }
@@ -18,6 +18,10 @@ public class Task
         {
             Status = TaskStatus.InProgress;
             Console.WriteLine($"{TaskName} status - {Status}");
+        }
+        else
+        {
+            
         }
     }
 
