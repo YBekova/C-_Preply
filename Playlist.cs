@@ -23,7 +23,7 @@ public class Playlist
         string input = Console.ReadLine();
         
         if (string.IsNullOrWhiteSpace(input)) Console.WriteLine("Song name can't be empty!");
-        else if (songsList.Contains(input)) Console.WriteLine("This song already exists!");
+        else if (songsList.Contains(input, StringComparer.InvariantCultureIgnoreCase)) Console.WriteLine("This song already exists!");
         else songsList.Add(input);
         
     }
@@ -38,18 +38,13 @@ public class Playlist
     public void DeleteSongByIndex()
     {
         Console.WriteLine("Enter the number of the song to delete: ");
-       
+
         int input = Convert.ToInt32(Console.ReadLine());
         int index = input - 1;
         
-        if (index >= 0 && index < songsList.Count)
-        {
-            songsList.RemoveAt(index);
-        }
-        else
-        {
-            Console.WriteLine("There is no song with this number!");
-        }
+        if (index >= 0 && index < songsList.Count) songsList.RemoveAt(index);
+        else Console.WriteLine("There is no song with this number!");
+        
 
     }
 
@@ -57,14 +52,10 @@ public class Playlist
     {
         Console.WriteLine("Enter the song to find: ");
         string input = Console.ReadLine();
-        if (songsList.Contains(input))
-        {
-            Console.WriteLine("The song is in your playlist");
-        }
-        else
-        {
-            Console.WriteLine("There's no song in the playlist");
-        }
+        
+        if (songsList.Contains(input, StringComparer.InvariantCultureIgnoreCase)) Console.WriteLine("The song is in your playlist");
+        else Console.WriteLine("There's no song in the playlist");
+        
     }
 
     public void AllSongs()
