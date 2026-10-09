@@ -4,13 +4,7 @@ public class Playlist
 {
     private List<string> songsList;
     
-    public int SongCount
-    {
-        get
-        {
-            return songsList.Count;
-        }
-    }
+    public int SongCount => songsList.Count;
 
     public Playlist()
     {
@@ -28,6 +22,8 @@ public class Playlist
         
     }
 
+    
+    //TODO add search to delete by name
     public void DeleteSongByName()
     {
         Console.WriteLine("Enter the song you want to delete from playlist: ");
