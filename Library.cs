@@ -11,7 +11,7 @@ public class Library
           Console.Write("Add the book Author: ");
           var bookAuthor = Console.ReadLine();
           
-          Console.WriteLine("Add the book Title: ");
+          Console.Write("Add the book Title: ");
           var bookName = Console.ReadLine();
 
           if (String.IsNullOrWhiteSpace(bookName)) Console.WriteLine("You can't add the book without a title");

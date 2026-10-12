@@ -45,7 +45,8 @@ while (libraryMenu)
             break;
         default:
              Console.WriteLine("Error! Choose the number from the menu!");
-             Console.WriteLine("\nInvalid option! Please enter 1 - 7");
+             Console.WriteLine("\nInvalid option! Please enter 1 - 8");
+             libraryMenu = false;
              break;
     }
 }
