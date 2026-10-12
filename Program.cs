@@ -1,6 +1,7 @@
 using C__Preply;
-var Library = new Library();
-bool libraryMenu = true;
+
+var library = new Library();
+var libraryMenu = true;
 
 while (libraryMenu)
 {
@@ -15,38 +16,38 @@ while (libraryMenu)
     Console.WriteLine("8. Exit the program.");
     Console.Write("\nSelect an option (1-8): ");
     
-    string choice = Console.ReadLine();
+    var choice = Console.ReadLine();
 
     switch (choice)
     {
         case"1":
-            Library.AddBook();
+            library.AddBook();
             break;
         case "2":
-            Library.AllBooks();
+            library.AllBooks();
             break;
         case "3":
-            Library.BookFindByTitle();
+            library.BookFindByTitle();
             break;
         case "4":
-            Library.BookBorrow();
+            library.BookBorrow();
             break;
         case "5":
-            Library.BookReturn();
+            library.BookReturn();
             break;
         case "6":
-            Library.DeleteBook();
+            library.DeleteBook();
             break;
         case "7":
-            Console.WriteLine($"Total book amount - {Library.bookCount}");
+            Console.WriteLine($"Total book amount - {library.BookCount}");
             break;
         case "8":
             Console.WriteLine("Library is closed good bye!");
+            libraryMenu = false;
             break;
         default:
              Console.WriteLine("Error! Choose the number from the menu!");
              Console.WriteLine("\nInvalid option! Please enter 1 - 8");
-             libraryMenu = false;
              break;
     }
 }

@@ -21,20 +21,19 @@ public class Book
             Status = BookStatus.Borrowed;
             return true;
         }
-        else return false;
-        
+
+        return false;
     }
 
     public bool BookCheckIn()
     {
-
         if (Status == BookStatus.Borrowed)
         {
             Status = BookStatus.Available;
             return true;
         }
 
-        else return false;
+        return false;
     }
 
     public void ShowInfo()

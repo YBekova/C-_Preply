@@ -2,9 +2,9 @@ namespace C__Preply;
 
 public class Library
 {
-     List<Book> books = new List<Book>();
-
-     public int bookCount => books.Count;
+     public int BookCount => _books.Count;
+     
+     private List<Book> _books = new();
 
      public void AddBook()
      {
@@ -14,15 +14,15 @@ public class Library
           Console.Write("Add the book Title: ");
           var bookName = Console.ReadLine();
 
-          if (String.IsNullOrWhiteSpace(bookName)) Console.WriteLine("You can't add the book without a title");
-          else books.Add(new Book(bookName, bookAuthor));
+          if (string.IsNullOrWhiteSpace(bookName)) Console.WriteLine("You can't add the book without a title");
+          else _books.Add(new Book(bookName, bookAuthor));
           
      }
 
      public void AllBooks()
      {
           var numeration = 1;
-          foreach (Book book in books)
+          foreach (var book in _books)
           {
                Console.WriteLine($"{numeration}. {book.BookAuthor} - {book.BookName}");
                numeration++;
@@ -34,9 +34,9 @@ public class Library
           Console.Write("Enter the book title to find: ");
           var bookTitle = Console.ReadLine();
 
-          bool found = false;
+          var found = false;
 
-          foreach (Book book in books)
+          foreach (var book in _books)
           {
                if (book.BookName.Contains(bookTitle, StringComparison.InvariantCultureIgnoreCase))
                {
@@ -52,67 +52,54 @@ public class Library
 
      public void BookBorrow()
      {
-          Console.Write("Enter the book author: ");
-          var bookAuthor = Console.ReadLine();
-          
-          Console.Write("Enter the book title: ");
-          var bookTitle = Console.ReadLine();
+          var book = SearchBookByUserInput();
 
-          foreach (Book book in books)
+          if (book != null)
           {
-               if (book.BookAuthor == bookAuthor && book.BookName == bookTitle)
-               {
-                    Console.WriteLine(book.BookCheckOut()
-                         ? "Book borrowed successfully!"
-                         : "This book is already borrowed!");
-                    return;
-               }
-               
+               Console.WriteLine(book.BookCheckOut()
+                    ? "Book borrowed successfully!"
+                    : "This book is already borrowed!");
           }
-          Console.WriteLine("The book is n ot found!");
      }
 
      public void BookReturn()
      {
-          Console.Write("Enter the book author: ");
-          var bookAuthor = Console.ReadLine();
-          
-          Console.Write("Enter the book title: ");
-          var bookTitle = Console.ReadLine();
+          var book = SearchBookByUserInput();
 
-          foreach (Book book in books)
+          if (book != null)
           {
-               if (book.BookAuthor == bookAuthor && book.BookName == bookTitle)
-               {
-                    Console.WriteLine(book.BookCheckIn()
-                         ? "Book returned successfully!"
-                         : "This book is already available!");
+               Console.WriteLine(book.BookCheckIn()
+                    ? "Book returned successfully!"
+                    : "This book is already available!");
 
-                    return;
-               }
           }
-          Console.WriteLine("The book is not registered in the library system.");
      }
 
      public void DeleteBook()
      {
+          var book = SearchBookByUserInput();
+
+          if (book != null)
+          {
+               _books.Remove(book);
+          }
+     }
+
+     private Book? SearchBookByUserInput()
+     {
+          Console.Write("Enter the book author: ");
+          var bookAuthor = Console.ReadLine();
           
           Console.Write("Enter the book title: ");
           var bookTitle = Console.ReadLine();
 
-          Console.Write("Enter the book author: ");
-          var bookAuthor = Console.ReadLine();
-
-          foreach (Book book in books)
+          foreach (var book in _books)
           {
-               if (book.BookAuthor == bookAuthor && book.BookName == bookTitle)
-               {
-                    books.Remove(book);
-                    Console.WriteLine("Book is deleted from the library system successfully.");
-                    return;
-               }
+               if (book.BookAuthor == bookAuthor && book.BookName == bookTitle) return book;
           }
+          
           Console.WriteLine("The book is not registered in the library system.");
+
+          return null;
      }
-     
 }
