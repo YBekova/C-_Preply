@@ -1,3 +1,12 @@
 .vs/
 bin/
 obj/
+/.idea/.idea.code/.idea/.name
+/.idea/.idea.code/.idea/encodings.xml
+/.idea/.idea.code/.idea/indexLayout.xml
+/.idea/.idea.code/.idea/projectSettingsUpdater.xml
+/.idea/.idea.code/.idea/vcs.xml
+/.idea/.idea.code/.idea/workspace.xml
+/.idea/workspace.xml
+obj\project.nuget.cache
+obj\project.assets.json
