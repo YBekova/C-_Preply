@@ -8,7 +8,7 @@ public class OrderInput
 
         while (true)
         {
-            Console.WriteLine(message + " ");
+            Console.Write(message + " ");
 
             if (int.TryParse(Console.ReadLine(), out number)
                 && number >= minValue
@@ -33,7 +33,7 @@ public class OrderInput
         while (true)
         {
             Console.Write(message);
-            string value = Console.ReadLine() ?? "";
+            var value = Console.ReadLine() ?? "";
 
             if (!string.IsNullOrWhiteSpace(value))
             {

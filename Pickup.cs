@@ -10,9 +10,6 @@ public class Pickup : IDelivery
     }
 
     
-    public decimal CalculateCost()
-    {
-        return 0;
-    }
+    public decimal CalculateCost() => 0;
 
 }

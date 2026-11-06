@@ -6,8 +6,5 @@ public class ExpressDelivery : Delivery
     {
     }
 
-    public override decimal CalculateCost()
-    {
-        return 100 + (15 * Distance);
-    }
+    public override decimal CalculateCost() => 100 + (15 * Distance);
 }
