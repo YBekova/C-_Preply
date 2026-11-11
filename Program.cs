@@ -11,7 +11,7 @@ using C__Preply;
 
 List<Order> orderDeliveryList = new List<Order>(8);
 
-int orderCount = OrderInput.ReadInt("How many orders? ", 0);
+var orderCount = OrderInput.ReadInt("How many orders? ", 0);
 //
 // orderDeliveryList.Add(new Order(10, 1550, delivery1));
 // orderDeliveryList.Add(new Order(2, 250, delivery2));
@@ -31,7 +31,7 @@ for (var i = 0; i < orderCount; i++)
     Console.WriteLine("2 - Express");
     Console.WriteLine("3 - Pickup");
 
-    int choice = OrderInput.ReadInt("Enter the choice: ", 1, 3);
+    var choice = OrderInput.ReadInt("Enter the choice: ", 1, 3);
 
     IDelivery delivery;
     
@@ -41,7 +41,7 @@ for (var i = 0; i < orderCount; i++)
         {
             var address = OrderInput.ReadText("Enter address: ");
 
-            int distance = OrderInput.ReadInt("Enter distance:", 1);
+            var distance = OrderInput.ReadInt("Enter distance:", 1);
 
             if (choice == 1)
             {
