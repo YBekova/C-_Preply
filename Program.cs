@@ -96,3 +96,6 @@ catch (ArgumentException ex)
 
 Console.WriteLine();
 Console.WriteLine(result);
+
+var testGeneric1 = new Initializer<PerformanceTest>(test3);
+var testGeneric2 = new Initializer<FunctionalTest>(test2);
