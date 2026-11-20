@@ -5,6 +5,7 @@ public abstract class TestRun
     public string Name { get; private set; }
     public DateTime StartsAt { get; private set; }
     public  DateTime EndsAt { get; private set; }
+    public TimeSpan GetDuration => EndsAt - StartsAt;
 
     public TestRun(string name, DateTime startsAt, DateTime endsAt)
     {
@@ -23,11 +24,6 @@ public abstract class TestRun
         EndsAt = endsAt;
     }
     
-
-    public TimeSpan GetDuration()
-    {
-        return EndsAt - StartsAt;
-    }
 
     public abstract bool IsPassed();
 

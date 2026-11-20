@@ -4,17 +4,17 @@ public class TestReportService
 {
     public string GenerateReport(List<TestRun> tests)
     {
-        int passedCount = 0;
-        int failedCount = 0;
-        string report = "";
+        var passedCount = 0;
+        var failedCount = 0;
+        var report = "";
         
         
-        foreach (TestRun test in tests)
+        foreach (var test in tests)
         {
-           bool passed = test.IsPassed();
-           string status = passed ? "PASSED" : "FAIL";
+           var passed = test.IsPassed();
+           var status = passed ? "PASSED" : "FAIL";
            
-           report += test.Name + " - " + test.GetDuration() + " - " + status + "\n";
+           report += test.Name + " - " + test.GetDuration + " - " + status + "\n";
 
            if (passed)
            {

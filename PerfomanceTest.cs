@@ -16,6 +16,6 @@ public class PerformanceTest : TestRun
 
     public override bool IsPassed()
     {
-        return GetDuration().TotalSeconds <= LimitSeconds;
+        return GetDuration.TotalSeconds <= LimitSeconds;
     }
 }

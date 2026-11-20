@@ -1,10 +1,10 @@
 using C__Preply;
 
-TestReportService service = new TestReportService();
+var service = new TestReportService();
 
-List<TestRun> tests = new List<TestRun>();
+var tests = new List<TestRun>();
 
-FunctionalTest test1 = new FunctionalTest(
+var test1 = new FunctionalTest(
     "Test1",
     new DateTime(2026, 12, 12, 8, 0, 0),
     new DateTime(2026, 12, 12, 8, 0, 55),
@@ -12,7 +12,7 @@ FunctionalTest test1 = new FunctionalTest(
     "Hello");
     
 
-FunctionalTest test2 = new FunctionalTest(
+var test2 = new FunctionalTest(
     "Test2",
     new DateTime(2026, 12, 12, 9, 0, 0),
     new DateTime(2026, 12, 12, 9, 0, 3),
@@ -20,7 +20,7 @@ FunctionalTest test2 = new FunctionalTest(
     "Error"
 );
 
-PerformanceTest test3 = new PerformanceTest(
+var test3 = new PerformanceTest(
     "Test3",
     new DateTime(2026, 12, 12, 10, 0, 0),
     new DateTime(2026, 12, 12, 10, 0, 7),
@@ -28,7 +28,7 @@ PerformanceTest test3 = new PerformanceTest(
 );
 
 
-PerformanceTest test4 = new PerformanceTest(
+var test4 = new PerformanceTest(
     "Test4",
     new DateTime(2026, 12, 12, 11, 0, 0),
     new DateTime(2026, 12, 12, 11, 0, 10),
@@ -36,7 +36,7 @@ PerformanceTest test4 = new PerformanceTest(
 );
 
 
-PerformanceTest test5 = new PerformanceTest(
+var test5 = new PerformanceTest(
     "Test5",
     new DateTime(2026, 12, 12, 23, 59, 50),
     new DateTime(2026, 12, 13, 0, 0, 10),
@@ -49,11 +49,11 @@ tests.Add(test3);
 tests.Add(test4);
 tests.Add(test5);
 
-string result = service.GenerateReport(tests);
+var result = service.GenerateReport(tests);
 
 try
 {
-    PerformanceTest invalidTest1 = new PerformanceTest(
+    var invalidTest1 = new PerformanceTest(
         "Invalid test",
         new DateTime(2026, 12, 12, 10, 0, 0),
         new DateTime(2026, 12, 12, 10, 0, 5),
@@ -67,7 +67,7 @@ catch (ArgumentException ex)
 
 try
 {
-    FunctionalTest invalidTest2 = new FunctionalTest(
+    var invalidTest2 = new FunctionalTest(
         "",
         new DateTime(2026, 12, 12, 10, 0, 0),
         new DateTime(2026, 12, 12, 10, 0, 5),
@@ -82,7 +82,7 @@ catch (ArgumentException ex)
 
 try
 {
-    PerformanceTest invalidTest3 = new PerformanceTest(
+    var invalidTest3 = new PerformanceTest(
         "Invalid time",
         new DateTime(2026, 12, 12, 12, 0, 0),
         new DateTime(2026, 12, 12, 10, 0, 0),
